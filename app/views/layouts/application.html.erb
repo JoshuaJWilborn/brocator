@@ -7,12 +7,59 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<%= current_user ? link_to("Log Out", destroy_user_session_path, :method => :delete) : '' %>
-	<% if current_user  && current_user.profile %>
-	| <%= link_to 'My Profile', profile_path(current_user.profile) %>
-	<% end %>
+
 	<br><br>
-<%= yield %>
+
+	<div class="container">
+    <div class="row">
+			<div class="span8 offset8">
+				<div class="navbar navbar-fixed-top navbar-inverse">
+				  <div class="navbar-inner">
+				    <div class="container">
+							<ul class="nav">
+							  <li class="active">
+							    <a class="brand" href="/"><b>Bro</b>cator</a>
+							  </li>
+							  <li><a href="#">About</a></li>
+							  <li><a href="#">Map</a></li>
+							  <li><a href="#">Events</a></li>
+							</ul>
+              <ul class="nav pull-right">
+								<% if current_user  && current_user.profile %>
+								<li>
+									<%= link_to 'My Profile', profile_path(current_user.profile) %>
+								</li>
+								<% end %><li>
+									<%= current_user ? link_to("Log Out", destroy_user_session_path, :method => :delete) : '' %>
+								</li>
+
+							</ul>
+							<form action="/search" class="navbar-search pull-right">
+							  <input type="text" name="name" class="search-query" placeholder="Find a bro!" id="input" autocomplete="off">
+							</form>
+
+
+
+				    </div>
+				  </div>
+				</div>
+			</div>
+		</div>
+		<div class="well span9 offset1">
+			<%= yield %>
+		</div>
+	</div>
+
+	<script>
+		$(function(){
+			$('#input').typeahead(
+				{
+				name: 'user',
+				source: <%= User.all.map{|user| user.name }.to_json.html_safe %>,
+				}
+			);
+		})
+	</script>
 
 </body>
 </html>
