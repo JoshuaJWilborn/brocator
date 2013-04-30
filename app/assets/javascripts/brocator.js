@@ -6,12 +6,7 @@ window.BA = {
   Store: {},
 
 	initialize: function() {
-    console.log("initialized")
+    console.log("initialized namespace")
 	}
 }
 
-$(function(){
-  BA.initialize();
-	BA.Store.UserRouter = new BA.Routers.UserRouter;
-	Backbone.history.start();
-})

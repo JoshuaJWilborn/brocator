@@ -1,0 +1,67 @@
+<div class="container">
+	<div class="well">
+<%= form_for @profile do |f| %>
+<%= f.label :fname, "First Name: " %>
+<%= f.text_field :fname %><br><br>
+<%= f.label :lname, "Last Name: " %>
+<%= f.text_field :lname %><br><br>
+<%= f.label :birthday, "Birth Date: "%>
+<%= f.date_select :birthday, {:start_year => 1900 ,:include_blank => true, :default => nil} %><br><br>
+<label>Fraternity:<br>
+<%= collection_select(:user, :fraternity_id, Fraternity.all, :id, :name, {})  %>
+</label><br><br>
+<%= f.label :address %>
+<%= f.text_field :address %><a id="address_errors">(Your address is for mapping purposes, and will not be displayed)</a><br><br>
+<%= f.hidden_field :lat %>
+<%= f.hidden_field :long %>
+<%= f.label :about, "About:" %><br>
+<%= f.text_area :about, {placeholder: "A bit about yourself.", style: "width: 700px; height: 200px; margin-left: 40px;"} %><br><br>
+
+	<%= f.label :avatar, "Avatar: " %><br>
+	<%= f.file_field :avatar %>
+	<br>
+  <br>
+<%= f.submit %>
+<% end %>
+	</div>
+</div>
+<script>
+$(function () {
+	var handleFiles = function(event) {
+		$('.preview').remove();
+		files = $(event.target.files)
+	  for (var i = 0; i < files.length; i++) {
+	    var file = files[i];
+	    var img = document.createElement("img");
+	    img.classList.add("preview");
+	    img.file = file;
+
+	    var reader = new FileReader();
+	    reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result;}; })(img);
+	    reader.readAsDataURL(file);
+	    $('#profile_avatar').before(img);
+			debugger
+		}
+	};
+
+
+	var lookupAddress = function(event) {
+		$.getJSON('/geo?address=' + $('#address').val(), {},function(data){
+      console.log('returned data:')
+			console.log(data)
+
+			if (data == null) {
+				$('#address_errors').text('Address not found.')
+			}
+			else {
+				$('#profile_lat').val(data['lat'])
+				$('#profile_long').val(data['lng'])
+        $('#address_errors').text('Address valid.')
+			}
+		})
+	};
+
+	$('#profile_address').on('change', lookupAddress);
+  $('#profile_avatar').on('change', handleFiles)
+})
+</script>

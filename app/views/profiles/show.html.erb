@@ -1,0 +1,15 @@
+<%= image_tag current_user.avatar.url %>
+
+<br>
+
+Name: <%= @profile.user.name %>
+<br><br>
+Fraternity: <%= @profile.user.fraternity.name %> ( <%= @profile.user.fraternity.greek_name %> )
+<br><br>
+Age: <%= @profile.age %>
+<br><br>
+Email: <%= @profile.user.email %>
+<br><br>
+Birthday: <%= @profile.birthday %>
+<br><br>
+<u>About:</u> <%= @profile.about %>

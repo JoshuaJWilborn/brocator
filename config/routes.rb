@@ -5,5 +5,9 @@ Brocator::Application.routes.draw do
 
   resources :users
 
+	resources :profiles, :only => [:create, :new, :edit, :update, :show]
+
+	get 'geo' => 'geo#search'
+
 	root :to => 'users#index'
 end

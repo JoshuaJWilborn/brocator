@@ -11,7 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130426235333) do
+ActiveRecord::Schema.define(:version => 20130429232839) do
+
+  create_table "fraternities", :force => true do |t|
+    t.string   "name"
+    t.string   "greek_name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "profiles", :force => true do |t|
+    t.string   "name"
+    t.date     "birthday"
+    t.text     "about"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "fname"
+    t.string   "lname"
+    t.string   "lat"
+    t.string   "long"
+    t.string   "address"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -32,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20130426235333) do
     t.datetime "avatar_updated_at"
     t.string   "provider"
     t.string   "uid"
+    t.integer  "fraternity_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

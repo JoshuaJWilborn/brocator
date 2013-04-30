@@ -20,6 +20,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'rest-client'
 gem 'jquery-rails'
 gem 'backbone-rails'
 gem 'ejs'
@@ -28,7 +29,11 @@ gem 'paperclip'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'figaro'
-
+gem 'letter_opener', :group => :development
+gem 'addressable'
+gem 'therubyracer'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
