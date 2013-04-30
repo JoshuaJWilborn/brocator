@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require_tree .
+ *= require twitter/typeahead.min
  */
 
 
@@ -36,4 +37,6 @@ select {
 	margin-top: 50px;
   background-color: white
 	;
+
 }
+
