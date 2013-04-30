@@ -161,6 +161,10 @@ GEM
       actionpack (>= 3.1)
       execjs
       railties (>= 3.1)
+    twitter-typeahead-rails (0.8.0)
+      actionpack (>= 3.1)
+      jquery-rails
+      railties (>= 3.1)
     tzinfo (0.3.37)
     uglifier (2.0.1)
       execjs (>= 0.3.0)
@@ -190,4 +194,5 @@ DEPENDENCIES
   sqlite3
   therubyracer
   twitter-bootstrap-rails
+  twitter-typeahead-rails
   uglifier (>= 1.0.3)
