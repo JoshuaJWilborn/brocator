@@ -37,7 +37,7 @@ gem 'letter_opener', :group => :development
 gem 'addressable'
 gem 'therubyracer'
 gem 'less-rails'
-gem 'bootstrap-rails'
+gem 'twitter-bootstrap-rails'
 gem 'twitter-typeahead-rails'
 
 # To use ActiveModel has_secure_password

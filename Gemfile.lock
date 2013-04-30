@@ -33,8 +33,6 @@ GEM
     backbone-rails (0.9.10)
       rails (>= 3.0.0)
     bcrypt-ruby (3.0.1)
-    bootstrap-rails (0.0.7)
-      railties (~> 3.1)
     builder (3.0.4)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -160,6 +158,10 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
+    twitter-bootstrap-rails (2.2.6)
+      actionpack (>= 3.1)
+      execjs
+      railties (>= 3.1)
     twitter-typeahead-rails (0.8.0)
       actionpack (>= 3.1)
       jquery-rails
@@ -177,7 +179,6 @@ PLATFORMS
 DEPENDENCIES
   addressable
   backbone-rails
-  bootstrap-rails
   coffee-rails (~> 3.2.1)
   devise
   ejs
@@ -194,5 +195,6 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   sqlite3
   therubyracer
+  twitter-bootstrap-rails
   twitter-typeahead-rails
   uglifier (>= 1.0.3)
