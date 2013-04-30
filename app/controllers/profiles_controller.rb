@@ -29,4 +29,10 @@ class ProfilesController < ApplicationController
 	def show
     @profile = Profile.find(params[:id])
 	end
+
+	def search
+		first_name, last_name = params[:name].split(' ')
+    @profile = Profile.where({:fname => first_name, :lname => last_name}).first
+		render :show
+	end
 end

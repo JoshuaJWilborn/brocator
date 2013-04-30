@@ -9,5 +9,7 @@ Brocator::Application.routes.draw do
 
 	get 'geo' => 'geo#search'
 
+  get 'search' => 'profiles#search'
+
 	root :to => 'users#index'
 end

@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
-
+//= require bootstrap
+//= require twitter/typeahead
 //= require backbone-rails
-//= require_tree .
+
 

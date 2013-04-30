@@ -40,4 +40,5 @@ class User < ActiveRecord::Base
 	def name
 		profile.fname + ' ' + profile.lname
 	end
+
 end
