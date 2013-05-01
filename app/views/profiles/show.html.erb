@@ -1,15 +1,17 @@
+
 <%= image_tag current_user.avatar.url %>
-
-<br>
-
+<p style="margin-left: 20px; margin-top: 20px;position:relative; ">
+	<% if current_user == @profile.user %>
+		<%= link_to "Edit Profile", edit_profile_path(@profile) %>
+		<br>
+	<% end %>
 Name: <%= @profile.user.name %>
-<br><br>
-Fraternity: <%= @profile.user.fraternity.name %> ( <%= @profile.user.fraternity.greek_name %> )
-<br><br>
-Age: <%= @profile.age %>
-<br><br>
+<br>
 Email: <%= @profile.user.email %>
-<br><br>
+<br>
+Fraternity: <%= @profile.user.fraternity.name %> ( <%= @profile.user.fraternity.greek_name %> )
+<br>
 Birthday: <%= @profile.birthday %>
-<br><br>
-<u>About:</u> <%= @profile.about %>
+<br>
+Age: <%= @profile.age %><br>
+<br><strong>About:</strong> <%= @profile.about %><br></p>

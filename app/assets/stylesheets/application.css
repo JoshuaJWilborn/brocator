@@ -29,14 +29,17 @@ select {
 	width: 100px;
 }
 
+.content {
+	min-height: 600px;
+}
+
 #user_fraternity_id {
 	width: 200px;
 }
 
 .well {
 	margin-top: 50px;
-  background-color: white
-	;
-
+  background-color: white;
+  min-height: 800px;
 }
 

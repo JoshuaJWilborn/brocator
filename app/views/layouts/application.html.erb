@@ -20,8 +20,7 @@
 							  <li class="active">
 							    <a class="brand" href="/"><b>Bro</b>cator</a>
 							  </li>
-							  <li><a href="#">About</a></li>
-							  <li><a href="#">Map</a></li>
+							  <li><a href="#">Bros</a></li>
 							  <li><a href="#">Events</a></li>
 							</ul>
               <ul class="nav pull-right">
@@ -36,6 +35,7 @@
 							</ul>
 							<form action="/search" class="navbar-search pull-right">
 							  <input type="text" name="name" class="search-query" placeholder="Find a bro!" id="input" autocomplete="off">
+							  <button type="Submit" style="border-radius: 100%;"><i class="icon-search"></i></button>
 							</form>
 
 
@@ -46,7 +46,9 @@
 			</div>
 		</div>
 		<div class="well span9 offset1">
-			<%= yield %>
+			<div class="content">
+				<%= yield %>
+			</div>
 		</div>
 	</div>
 
