@@ -13,7 +13,7 @@ module ProfilesHelper
 	end
 
 	def geo_url(address)
-		Addressable::URI.new(
+		::Addressable::URI.new(
 		  scheme: "http",
 		  host: "maps.googleapis.com",
 		  path: "maps/api/geocode/json",
