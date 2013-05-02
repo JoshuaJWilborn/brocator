@@ -65,7 +65,6 @@ $(function () {
 	    reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result;}; })(img);
 	    reader.readAsDataURL(file);
 	    $('#profile_avatar').before(img);
-			debugger
 		}
 	};
 
