@@ -1,1 +1,1 @@
-S3_CREDENTIALS = { :access_key_id => ENV['AW3KEYID'], :secret_access_key => ENV['AW3SECRETKEY'], :bucket => 'avatars' }
+S3_CREDENTIALS = { :access_key_id => ENV['AW3KEYID'], :secret_access_key => ENV['AW3SECRETKEY'], :bucket => 'brocator' }
