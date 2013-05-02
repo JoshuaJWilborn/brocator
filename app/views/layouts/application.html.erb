@@ -56,7 +56,7 @@
 			$('#input').typeahead(
 				{
 				name: 'user',
-				source: <%= User.all.map{|user| user.name }.to_json.html_safe %>,
+				source: <%= User.all.empty? ? User.all.map{|user| user.fname + ' ' + user.lame }.to_json.html_safe : '' %>,
 				}
 			);
 		})
