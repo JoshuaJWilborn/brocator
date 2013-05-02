@@ -8,6 +8,6 @@
 		<br>
 	<% end %>
 Host: <%= link_to @event.user.name, profile_path(@event.user.profile) %><br>
-<%= @event.official ? "Fraternity: #{@event.fraternity.name}<br>": '' %>
+<%= @event.official ? "Fraternity: #{@event.fraternity.name}<br>".html_safe : '' %>
 Description: <%= @event.body %><br>
-Entry Fee: <%= @event.entry_fee %><br>
+Entry Fee: <%= @event.entry_fee %>$<br>

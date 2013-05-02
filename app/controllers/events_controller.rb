@@ -49,6 +49,7 @@ class EventsController < ApplicationController
 		if @event.user_id == current_user.id
 			@event.update_attributes(params[:event])
 			@event.save
+			redirect_to event_path(@event)
 		else
       redirect_to events_path
 		end
