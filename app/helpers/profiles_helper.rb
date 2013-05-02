@@ -1,4 +1,4 @@
-
+require 'addressable/uri'
 
 module ProfilesHelper
   require 'rest_client'
