@@ -1,7 +1,9 @@
 class FixProfileLatLonType < ActiveRecord::Migration
   def change
-		change_column :profiles, :latitude, :float
-		change_column :profiles, :longitude, :float
+		drop_column :profiles, :latitude
+		add_column :profiles, :latitude, :float
+    drop_column :profiles, :longitude
+		add_column :profiles, :longitude, :float
 
 	end
 end
