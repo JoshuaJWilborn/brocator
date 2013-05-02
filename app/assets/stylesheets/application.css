@@ -69,10 +69,12 @@ form select {
 	width: 100px;
 }
 
+#bro-search-form {
+	margin-top: 2px;
+}
+
 .content {
 	min-height: 600px;
-  margin: 50px;
-
 }
 
 #user_fraternity_id {
