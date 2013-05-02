@@ -24,6 +24,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'aws-sdk'
 gem 'rest-client'
 gem 'jquery-rails'
 gem 'backbone-rails'

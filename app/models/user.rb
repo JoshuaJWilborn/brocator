@@ -11,7 +11,9 @@ class User < ActiveRecord::Base
   attr_accessible :avatar, :provider, :uid, :fraternity_id
 
 	has_attached_file :avatar, :styles => {:medium => '300x300', :thumb => '100x100'},
-									  :default_url => :gravatar_url
+									  :default_url => :gravatar_url, :storage => :s3,
+										:s3_credentials => S3_CREDENTIALS,
+										:path => "/:style/:id/:filename"
 	# attr_accessible :title, :body
 
 	has_one :profile, :dependent => :destroy
