@@ -15,5 +15,5 @@
 //= require twitter/bootstrap
 //= require twitter/typeahead
 //= require backbone-rails
+//= require leaflet
 //= require_tree .
-

@@ -1,0 +1,38 @@
+<h3 style='float: left'>Events: </h3>
+<form class="navbar-search pull-right" action='/events/search'>
+  <input name="address" type="text" class="search-query event-search" placeholder="Find events by location">
+</form>
+
+<div id='map_div'>
+
+</div>
+
+<script>
+$(function(){
+  var map = L.map('map_div').setView(<%= [ @location['latitude'], @location['longitude'] ] %>, 11)
+
+  L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  	maxZoom: 15
+  }).addTo(map);
+
+
+  var events = <%= @events.to_json.html_safe %>
+
+	_(events).each(function(event_){
+		var marker = L.marker([event_.latitude, event_.longitude]).addTo(map);
+		marker.bindPopup(
+			"<a href='/events/" + event_.id + "'>View Event</a><br>" +
+			"<b>Title:</b> " + event_.title + "<br>" +
+			"<b>Description: </b>" + event_.body + "<br>" +
+			((event_.official) === true ?
+			("<b>Hosted By: </b>" + event_.fraternity.name +
+			"(" + event_.fraternity.greek_name +
+			")" + "<br>") : '')
+	  )
+		console.log(event_.official)
+	})
+
+});
+</script>
+
+

@@ -7,6 +7,10 @@ Brocator::Application.routes.draw do
 
 	resources :profiles, :only => [:create, :new, :edit, :update, :show]
 
+  get 'events/search' => 'events#search'
+
+  resources :events
+
 	get 'geo' => 'geo#search'
 
   get 'search' => 'profiles#search'

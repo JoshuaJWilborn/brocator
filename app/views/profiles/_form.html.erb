@@ -31,8 +31,8 @@
 	<%= f.label :address, :class => "control-label" %>
 	<div class="controls">
 		<%= f.text_field :address %><a id="address_errors">(Your address will not be displayed)</a>
-		<%= f.hidden_field :lat %>
-		<%= f.hidden_field :long %>
+		<%= f.hidden_field :latitude %>
+		<%= f.hidden_field :longitude %>
 	</div>
 </div>
 <div class="control-group">
@@ -79,8 +79,8 @@ $(function () {
 				$('#address_errors').text('Address not found.')
 			}
 			else {
-				$('#profile_lat').val(data['lat'])
-				$('#profile_long').val(data['lng'])
+				$('#profile_latitude').val(data['lat'])
+				$('#profile_longitude').val(data['lng'])
         $('#address_errors').text('Address valid.')
 			}
 		})

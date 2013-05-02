@@ -1,0 +1,13 @@
+
+<%= image_tag current_user.avatar.url %>
+
+<p style="margin-left: 20px; margin-top: 20px;position:relative; ">
+	<% if current_user.id == @event.user_id %>
+		<%= link_to "Edit Event", edit_event_path(@event) %> |
+		<%= link_to "Remove", event_path(@event), :method => :delete %>
+		<br>
+	<% end %>
+Host: <%= link_to @event.user.name, profile_path(@event.user.profile) %><br>
+<%= @event.official ? "Fraternity: #{@event.fraternity.name}<br>": '' %>
+Description: <%= @event.body %><br>
+Entry Fee: <%= @event.entry_fee %><br>

@@ -1,0 +1,44 @@
+<%= form_for @event, :html => {:class => "form-horizontal"} do |f| %>
+<div class="control-group">
+	<%= f.label :title, "Event Title: ", :class => "control-label" %>
+	<div class="controls">
+		<%= f.text_field :title %>
+	</div>
+</div>
+
+<div class="control-group">
+	<%= f.label :date, "Date: ", :class => "control-label" %>
+	<div class="controls">
+		<%= f.date_select :date, :default => Date.today, :min => Date.today %>
+	</div>
+</div>
+
+<div class="control-group">
+	<label class="control-label" for="event_official">Official Event: </label>
+	<div class="controls">
+		<%= select(:event, :official, [["Yes", true], ["No", false]], {})  %>
+	</div>
+</div>
+
+<div class="control-group">
+	<%= f.label :entry_fee, "Entry Fee: ", :class => "control-label" %>
+	<div class="controls">
+		<%= f.number_field :entry_fee, { min: 0 } %>
+	</div>
+</div>
+
+<div class="control-group">
+	<%= f.label :address, :class => "control-label" %>
+	<div class="controls">
+		<%= f.text_field :address %>
+	</div>
+</div>
+<div class="control-group">
+	<%= f.label :body, "About:", :class => "control-label" %>
+	<div class="controls">
+		<%= f.text_area :body, {placeholder: "Describe your event.", style: "width: 75%; height: 250px;"} %>
+	</div>
+</div>
+<%= f.submit :class => 'btn-primary btn controls' %>
+<% end %>
+

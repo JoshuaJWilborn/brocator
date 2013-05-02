@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130429232839) do
+ActiveRecord::Schema.define(:version => 20130501214318) do
+
+  create_table "events", :force => true do |t|
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "body"
+    t.integer  "entry_fee"
+    t.boolean  "official"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "address"
+    t.date     "date"
+  end
 
   create_table "fraternities", :force => true do |t|
     t.string   "name"
@@ -25,12 +39,12 @@ ActiveRecord::Schema.define(:version => 20130429232839) do
     t.date     "birthday"
     t.text     "about"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.string   "fname"
     t.string   "lname"
-    t.string   "lat"
-    t.string   "long"
+    t.float    "latitude",   :limit => 255
+    t.float    "longitude",  :limit => 255
     t.string   "address"
   end
 

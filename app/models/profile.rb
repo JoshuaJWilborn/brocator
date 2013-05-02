@@ -1,11 +1,17 @@
 class Profile < ActiveRecord::Base
-  attr_accessible :about, :birthday, :fname, :lname, :user_id, :lat, :long, :address
-	validates :about,  :birthday, :fname, :lname, :user_id, :lat, :long, :presence => true
+  attr_accessible :about, :birthday, :fname, :lname, :user_id, :latitude, :longitude, :address
 
-  belongs_to :user
+	validates :about,  :birthday, :fname, :lname, :user_id, :presence => true
 
+  has_one :fraternity, :through => :user
+
+	belongs_to :user
+
+	geocoded_by :coordinates
 
 	def age
 		(Date.today - birthday).to_i / 365.floor
 	end
+
+
 end

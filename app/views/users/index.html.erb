@@ -1,0 +1,38 @@
+<div>
+  <center>Fraternity Brothers Near You</center>
+</div>
+
+<div id='map_div'>
+
+</div>
+
+<script>
+$(function(){
+  var map = L.map('map_div').setView(<%= [ @location['latitude'], @location['longitude'] ] %>, 11)
+
+  L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  	maxZoom: 15
+  }).addTo(map);
+
+
+  var location_coords = <%= @profiles.map{|location| [location['latitude'], location['longitude']]}.to_json %>;
+
+  var profiles = <%= @profiles.to_json.html_safe %>
+
+	console.log(profiles);
+
+	_(profiles).each(function(profile){
+		var marker = L.marker([profile.latitude, profile.longitude]).addTo(map);
+		marker.bindPopup(
+			"<a href='/profiles/" + profile.id + "'>View Profile</a><br>" +
+			"<b>Name:</b> " + profile.fname + ' ' + profile.lname + "<br>" +
+			"<b>Fraternity: </b>" + profile.fraternity.name +
+			"(" + profile.fraternity.greek_name +
+			")" + "<br>"
+	  )
+	})
+
+});
+</script>
+
+

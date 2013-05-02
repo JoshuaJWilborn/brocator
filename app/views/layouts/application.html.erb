@@ -19,9 +19,8 @@
 							<ul class="nav">
 							  <li class="active">
 							    <a class="brand" href="/"><b>Bro</b>cator</a>
-							  </li>
-							  <li><a href="#">Bros</a></li>
-							  <li><a href="#">Events</a></li>
+							  <li><a href="/events">Find Events</a></li>
+							  <li><a href="/events/new">Add Event</a></li>
 							</ul>
               <ul class="nav pull-right">
 								<% if current_user  && current_user.profile %>
@@ -46,7 +45,7 @@
 			</div>
 		</div>
 		<div class="well span9 offset1">
-			<div class="content">
+			<div class="content" id="content">
 				<%= yield %>
 			</div>
 		</div>
@@ -61,6 +60,7 @@
 				}
 			);
 		})
+		console.log("typehead")
 	</script>
 
 </body>
