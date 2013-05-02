@@ -56,7 +56,7 @@
 			$('#input').typeahead(
 				{
 				name: 'user',
-				source: <%= !User.all.empty? ? User.all.map{|user| user.fname + ' ' + user.lame }.to_json.html_safe : '' %>,
+				source: <%= !Profile.all.empty? ? Profile.all.map{|prof| prof.fname + ' ' + prof.lname }.to_json.html_safe : '' %>,
 				}
 			);
 		})
