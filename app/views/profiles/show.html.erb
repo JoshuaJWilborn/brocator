@@ -1,5 +1,5 @@
 
-<%= image_tag current_user.avatar.url %>
+<%= image_tag @profile.user.avatar.url %>
 <p style="margin-left: 20px; margin-top: 20px;position:relative; ">
 	<% if current_user == @profile.user %>
 		<%= link_to "Edit Profile", edit_profile_path(@profile) %>
