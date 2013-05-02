@@ -8,6 +8,8 @@ class Event < ActiveRecord::Base
 
   belongs_to :user
 
+  has_many :event_users
+  has_many :attending_users, :through => :event_attendies, :source => :user
 	has_one :fraternity, :through => :user
 
 	geocoded_by :address

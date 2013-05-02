@@ -18,6 +18,9 @@ class User < ActiveRecord::Base
 
 	has_one :profile, :dependent => :destroy
 
+	has_many :event_users
+	has_many :attending_events, :through => :event_users, :source => :event
+
   belongs_to :fraternity
 
   def gravatar_url(default = '', size = 100)
