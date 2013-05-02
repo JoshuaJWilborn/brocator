@@ -33,7 +33,7 @@
 
 							</ul>
 							<form action="/search" class="navbar-search pull-right">
-							  <input type="text" name="name" class="search-query" placeholder="Find a bro!" id="input" autocomplete="off">
+							  <input type="text" name="name" class="search-query" placeholder="Find a bro!" id="typeahead_input" autocomplete="off">
 							  <button type="Submit" style="border-radius: 100%;"><i class="icon-search"></i></button>
 							</form>
 
@@ -53,10 +53,10 @@
 
 	<script>
 		$(function(){
-			$('#input').typeahead(
+			$('#typeahead_input').typeahead(
 				{
 				name: 'user',
-				source: <%= !Profile.all.empty? ? Profile.all.map{|prof| prof.fname + ' ' + prof.lname }.to_json.html_safe : '' %>,
+				local: <%= !Profile.all.empty? ? Profile.all.map{|prof| prof.fname + ' ' + prof.lname }.to_json.html_safe : '' %>,
 				}
 			);
 		})
