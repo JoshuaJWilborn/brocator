@@ -71,7 +71,7 @@ $(function () {
 
 
 	var lookupAddress = function(event) {
-		$.getJSON('/geo?address=' + $('#address').val(), {},function(data){
+		$.getJSON('/geo?address=' + $('#profile_address').val(), {},function(data){
       console.log('returned data:')
 			console.log(data)
 
