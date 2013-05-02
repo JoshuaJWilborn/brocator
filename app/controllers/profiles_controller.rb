@@ -10,6 +10,8 @@ class ProfilesController < ApplicationController
 
 	def create
     current_user.profile = Profile.new(params[:profile], :user_id => current_user.id)
+		current_user.update_attributes(params[:user])
+		current_user.save
 	  redirect_to root_path
 	end
 
