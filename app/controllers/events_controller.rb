@@ -56,7 +56,7 @@ class EventsController < ApplicationController
 
 	def edit
 		@event = Event.find(params[:id])
-		if current_user.id == @event.id
+		if current_user.id == @event.user.id
 			render :edit
 		else
 			render :show

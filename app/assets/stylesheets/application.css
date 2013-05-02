@@ -69,6 +69,11 @@ form select {
 	width: 100px;
 }
 
+.leaflet-popup-content {
+	color: black;
+	text-shadow: none;
+}
+
 #bro-search-form {
 	margin-top: 2px;
 }
