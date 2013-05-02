@@ -75,4 +75,16 @@ class EventsController < ApplicationController
 		end
 		redirect_to events_path
 	end
+
+	def attend
+	  @event = Event.find(params[:id])
+	  if @event.attending_users.include?(current_user)
+			event_user = Event.find_where(:user_id = current_user.id, :event_id => @event.id)
+		  event_user.destroy
+		else
+			event_user = EventUser.new(:user_id = current_user.id, :event_id => @event.id)
+			event_user.save
+		end
+		render :nothing => true
+	end
 end
