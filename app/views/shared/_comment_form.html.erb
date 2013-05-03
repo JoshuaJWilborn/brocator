@@ -9,18 +9,12 @@
 		<%= f.text_field :title, :placeholder => "Add a comment!" %>
 	</div>
 </div>
-<div class="control-group">
-	<%= f.label :body, :class => "control-label" %>
+<div class="control-group offset0">
+	<%= f.label :body, :class => "control-label"%>
 	<div class="controls">
-		<%= f.text_area :body, :placeholder => "Text here" %>
+		<%= f.text_area :body, :placeholder => "Text here", :style => "width: 500px; height: 100px"  %>
 	</div>
 </div>
-
-
-
-
-
-
 
 	<br>
   <%= f.submit :class => 'btn-primary btn controls'%>

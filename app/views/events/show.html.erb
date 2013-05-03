@@ -1,4 +1,16 @@
-<p style="margin-left: 20px; margin-top: 20px;position:relative; ">
+<center><h1>Event: <%= @event.title %></h1></center>
+
+<div class="offset1">
+<div id="comments" class="pull-right block">
+	<% unless @event.comments.empty? %>
+
+		<% @event.comments.order(:created_at).each do |comment| %>
+			<p style="padding: 3px;margin-left: 30px"><%= link_to (image_tag @event.user.avatar(:thumb), width: "25px", height: "25px"), user_path(@event.user) %>
+			<b><%= comment.user.name %></b>: <%= comment.title %><%= comment.user == current_user ? (" | "+ link_to("Delete<br>".html_safe, event_comment_path(@event, comment), :method => :delete)).html_safe : '' %></p><br>
+			<p style="margin-left: 60px;margin-top:-20px; border: 1px solid white; padding: 10px; width: 350px"><%= comment.body %></p>
+		<% end %>
+	<% end %>
+</div><p style="margin-left: 35px; margin-top: 20px;position:relative; ">
 	<%= @event.attending_users.include?(current_user) ? link_to("Cancel Attendence<br>".html_safe, attend_event_path(@event)) : link_to("Attend<br>".html_safe, attend_event_path(@event)) %>
 	<% if current_user.id == @event.user_id %>
 		<%= link_to "Edit Event", edit_event_path(@event) %> |
@@ -8,22 +20,23 @@
 
 Host: <%= link_to @event.user.name, profile_path(@event.user.profile) %><br>
 <%= @event.official ? "Fraternity: #{@event.fraternity.name}<br>".html_safe : '' %>
-Description: <%= @event.body %><br>
 Entry Fee: <%= @event.entry_fee %>$<br>
+Description: <%= @event.body %><br>
 </p>
 <br>
 <% unless @event.attending_users.empty? %>
-	Currently Attending: <br>
-		<% @event.attending_users.each do |user| %>
-		<%= link_to user.profile.fname + ' ' + user.profile.lname, user_path(user) %><br><br>
-	<% end %>
+	<p style="margin-left: 35px">	Currently Attending: <br>
+		<ul style="margin-left: 50px">
+			<% @event.attending_users.each do |user| %>
+				<li><%= link_to user.profile.fname + ' ' + user.profile.lname, user_path(user) %></li>
+				<br>
+			<% end %>
+		</ul>
+	</p>
 <% end %>
 
-<% unless @event.comments.empty? %>
-<% @event.comments.order(:created_at).each do |comment| %>
-<%= comment.user == current_user ? link_to("Delete Comment<br>".html_safe, event_comment_path(@event, comment), :method => :delete) : '' %>
-<b><%= comment.title %></b><br>
-<p><%= comment.body %></p>
-<% end %>
-<% end %>
+</div>
+<br>
+<hr>
+
 <%= render :partial => 'shared/comment_form' %>
