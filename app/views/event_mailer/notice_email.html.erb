@@ -5,7 +5,7 @@
 </head>
 <body>
   <h1>Hello, <%= @user.name %></h1><br>
-	<p>Our records indicate that you have RSVP'd to attend <%= @event.title %> tomorrow!  Go to the <%= link_to "event page", event_path(@event) %> for details our to say you won't attend.</p>
+	<p>Our records indicate that you have RSVP'd to attend <%= @event.title %> tomorrow!  Go to the <%= link_to "event page", event_url(@event) %> for details our to say you won't attend.</p>
 
 	<br>
 	<p>
