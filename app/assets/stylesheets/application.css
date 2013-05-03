@@ -91,6 +91,9 @@ form select {
 	text-shadow: 1px 1px black;
 	margin-top: 50px;
   border: 0px;
-  background: grey;
+  background-image:url("http://static.flavors.me/dynamic_images/background/6cf0a5bb722346ab9d5addcb6e1b2c72");
+  background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
 

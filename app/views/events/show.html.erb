@@ -10,7 +10,7 @@
 			<p style="margin-left: 60px;margin-top:-20px; border: 1px solid white; padding: 10px; width: 350px"><%= comment.body %></p>
 		<% end %>
 	<% end %>
-</div><p style="margin-left: 35px; margin-top: 20px;position:relative; ">
+</div><p style="margin-left: 35px; margin-top: 20px;position:relative; width: 250px">
 	<%= @event.attending_users.include?(current_user) ? link_to("Cancel Attendence<br>".html_safe, attend_event_path(@event)) : link_to("Attend<br>".html_safe, attend_event_path(@event)) %>
 	<% if current_user.id == @event.user_id %>
 		<%= link_to "Edit Event", edit_event_path(@event) %> |
