@@ -24,6 +24,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'clockwork'
+gem 'delayed_job_active_record'
+gem 'delayed_job'
 gem 'aws-sdk'
 gem 'rest-client'
 gem 'jquery-rails'

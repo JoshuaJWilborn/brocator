@@ -40,6 +40,8 @@ GEM
     builder (3.0.4)
     climate_control (0.0.3)
       activesupport (>= 3.0)
+    clockwork (0.5.0)
+      tzinfo (~> 0.3.35)
     cocaine (0.5.1)
       climate_control (>= 0.0.3, < 1.0)
     coffee-rails (3.2.2)
@@ -58,6 +60,11 @@ GEM
     debugger-linecache (1.1.2)
       debugger-ruby_core_source (>= 1.1.1)
     debugger-ruby_core_source (1.2.0)
+    delayed_job (3.0.5)
+      activesupport (~> 3.0)
+    delayed_job_active_record (0.4.4)
+      activerecord (>= 2.1.0, < 4)
+      delayed_job (~> 3.0)
     devise (2.2.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -195,8 +202,11 @@ DEPENDENCIES
   addressable
   aws-sdk
   backbone-rails
+  clockwork
   coffee-rails (~> 3.2.1)
   debugger
+  delayed_job
+  delayed_job_active_record
   devise
   ejs
   figaro
