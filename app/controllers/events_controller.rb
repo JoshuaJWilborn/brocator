@@ -82,8 +82,7 @@ class EventsController < ApplicationController
 			event_user = EventUser.where(:user_id => current_user.id, :event_id => @event.id)[0]
 		  event_user.destroy
 		else
-			event_user = EventUser.new(:user_id => current_user.id, :event_id => @event.id)
-			event_user.save
+			EventUser.create!(:user_id => current_user.id, :event_id => @event.id)
 		end
 		render :nothing => true
 	end
