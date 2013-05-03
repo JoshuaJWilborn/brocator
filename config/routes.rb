@@ -10,6 +10,7 @@ Brocator::Application.routes.draw do
   get 'events/search' => 'events#search'
 
   resources :events do
+		resources :comments, :only => [:create, :update, :destroy]
 	  member do
 		  get 'attend' => 'events#attend'
 		end

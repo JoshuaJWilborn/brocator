@@ -66,6 +66,7 @@ class EventsController < ApplicationController
 
 	def show
 		@event = Event.find(params[:id])
+		@comment = Comment.new
 	end
 
 	def destroy
@@ -84,6 +85,6 @@ class EventsController < ApplicationController
 		else
 			EventUser.create!(:user_id => current_user.id, :event_id => @event.id)
 		end
-		render :nothing => true
+		redirect_to event_path(@event)
 	end
 end
