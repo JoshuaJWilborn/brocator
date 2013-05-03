@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
 		comment.user_id = current_user.id
 		comment.event_id = params[:event_id]
 		comment.save
-		redirect_to root_path
+		redirect_to :back
 	end
 
 	def destroy

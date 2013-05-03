@@ -9,11 +9,10 @@ Brocator::Application.load_tasks
 task :send_messages => :environment do
 	eventNames = EventUser.where(:notified => false).includes(:event, :user)
 	eventNames.each do |eventUser|
-    p eventUser.inspect
+		next if eventUser.notified == true
 		next unless eventUser.event.date == (Date.today + 1)
 	  EventMailer.delay.notice_email(eventUser.user, eventUser.event)
 		eventUser.notified = true
 		eventUser.save
-		p eventUser.inspect
 	end
 end
