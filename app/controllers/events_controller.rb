@@ -79,7 +79,7 @@ class EventsController < ApplicationController
 	def attend
 	  @event = Event.find(params[:id])
 	  if @event.attending_users.include?(current_user)
-			event_user = Event.find_where(:user_id => current_user.id, :event_id => @event.id)
+			event_user = EventUser.where(:user_id => current_user.id, :event_id => @event.id)[0]
 		  event_user.destroy
 		else
 			event_user = EventUser.new(:user_id => current_user.id, :event_id => @event.id)
