@@ -108,6 +108,7 @@ GEM
     mime-types (1.23)
     multi_json (1.7.2)
     multipart-post (1.2.0)
+    newrelic_rpm (3.6.1.88)
     nokogiri (1.5.9)
     oauth2 (0.8.1)
       faraday (~> 0.8)
@@ -214,6 +215,7 @@ DEPENDENCIES
   jquery-rails
   less-rails
   letter_opener
+  newrelic_rpm
   omniauth
   omniauth-facebook
   paperclip
